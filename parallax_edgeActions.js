@@ -13,7 +13,30 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    (function(symbolName) {
       
       
-      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
+      
+
+      Symbol.bindElementAction(compId, symbolName, "${but_credit}", "click", function(sym, e) {
+         
+         window.open("http://aphall.com/", "_blank");
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${but_source}", "click", function(sym, e) {
+         
+         window.open("https://github.com/andyhall/edge-parallax", "_blank");
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${but_edge_an}", "click", function(sym, e) {
+         
+         window.open("http://html.adobe.com/edge/animate/", "_blank");
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
          
          // style page
          sym.$(document.body).css("backgroundColor", "#000");
@@ -32,7 +55,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          
          // prevent Edge Animate stage from scrolling
          sym.getSymbolElement().css({ position:"fixed" });
-         
+         window.ref = sym;
          
          // animation frame loop: check scroll position 
          // each frame and move animation accordingly
@@ -51,27 +74,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
          requestAnimationFrame(animate);
          
          
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${_but_credit}", "click", function(sym, e) {
-         
-         window.open("http://aphall.com/", "_blank");
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${_but_source}", "click", function(sym, e) {
-         
-         window.open("https://github.com/andyhall/edge-parallax", "_blank");
-
-      });
-      //Edge binding end
-
-      Symbol.bindElementAction(compId, symbolName, "${_but_edge_an}", "click", function(sym, e) {
-         
-         window.open("http://html.adobe.com/edge/animate/", "_blank");
 
       });
       //Edge binding end
@@ -99,7 +101,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'header'
    (function(symbolName) {   
    
-      Symbol.bindElementAction(compId, symbolName, "${_adobe}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${adobe}", "click", function(sym, e) {
          // insert code for mouse click here
          // Navigate to a new URL in the current window
          // (replace "_self" with appropriate target attribute for a new window)
@@ -116,7 +118,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    //Edge symbol: 'p5_try_button'
    (function(symbolName) {   
    
-      Symbol.bindElementAction(compId, symbolName, "${_try_but_hitarea}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${try_but_hitarea}", "click", function(sym, e) {
          
          window.open("https://creative.adobe.com/products/animate", "_blank");
          
@@ -125,7 +127,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_try_but_hitarea}", "mouseenter", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${try_but_hitarea}", "mouseenter", function(sym, e) {
          
          sym.stop("show")
          sym.play("show");
@@ -134,7 +136,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_try_but_hitarea}", "mouseleave", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${try_but_hitarea}", "mouseleave", function(sym, e) {
          
          sym.stop("hide")
          sym.play("hide");
@@ -177,7 +179,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
          //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_try_but_hitarea}", "click", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${try_but_hitarea}", "click", function(sym, e) {
          
          window.open("https://helpx.adobe.com/creative-cloud/learn/tutorials/animate.html#get-started", "_blank");
          
@@ -186,7 +188,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
          //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_try_but_hitarea}", "mouseenter", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${try_but_hitarea}", "mouseenter", function(sym, e) {
          
          sym.stop("show")
          sym.play("show");
@@ -195,7 +197,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
          //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_try_but_hitarea}", "mouseleave", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${try_but_hitarea}", "mouseleave", function(sym, e) {
          
          sym.stop("hide")
          sym.play("hide");
@@ -289,7 +291,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_hit_area}", "mouseleave", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${hit_area}", "mouseleave", function(sym, e) {
          
          sym.stop("hide");
          sym.play("hide");
@@ -297,7 +299,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_hit_area}", "mouseenter", function(sym, e) {
+      Symbol.bindElementAction(compId, symbolName, "${hit_area}", "mouseenter", function(sym, e) {
          
          sym.stop("show");
          sym.play("show");
@@ -316,4 +318,4 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // aliases for commonl
    })("bg_block");
    //Edge symbol end:'bg_block'
 
-})(jQuery, AdobeEdge, "EDGE-343491701");
+})(window.jQuery || AdobeEdge.$, AdobeEdge, "EDGE-343491701");
